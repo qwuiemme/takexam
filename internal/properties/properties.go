@@ -1,4 +1,31 @@
 package properties
 
-const RunAddress = "localhost:8888"
-const ConnectionString = "sql10518635:Kkk4CiaQeQ@(sql10.freemysqlhosting.net:3306)/sql10518635"
+import (
+	"log"
+	"os"
+
+	"gopkg.in/yaml.v2"
+)
+
+type Properties struct {
+	RunAddr    string `yml:"runaddr"`
+	ConnString string `yml:"connstring"`
+}
+
+func New() Properties {
+	var p Properties
+
+	yamldata, err := os.ReadFile("config/props.yml")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = yaml.Unmarshal(yamldata, &p)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return p
+}
