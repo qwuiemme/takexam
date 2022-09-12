@@ -1,0 +1,33 @@
+{{ define "create-task" }}
+{{ template "header" }}
+
+<h1 class="text-center">Создать задачу</h1>
+
+<div class="container div-center text-center m-auto">
+    <form class="row g-3" method="post" action="/tasks/create">
+
+        <div class="col-md-4">
+            <label class="form-label" for="login">Логин</label>
+            <input class="form-control" type="text" name="login" id="login" value={{ . }} readonly>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="complete-before">Выполнить до</label>
+            <input class="form-control" type="date" name="complete-before" id="complete-before" required>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="name">Название</label>
+            <input class="form-control" type="text" name="name" id="name" required>
+        </div>
+        <div class="col-md-18">
+            <label class="form-label" for="description">Описание</label>
+            <textarea class="form-control" name="description" id="description" required></textarea>
+        </div>
+
+        <div class="justify-content-center">
+            <button class="col-md-3 btn btn-dark" type="submit">Отправить</button>
+        </div>
+    </form>
+</div>
+
+{{ template "footer" }}
+{{ end }}

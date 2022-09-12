@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin-left: 10px;
+}
+
+.div-center {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    right: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.form-padding {
+    padding-bottom: 30px;
+}
+
+.error-div {
+    margin-top: 15px;
+    border-radius: 5px;
+    background-color: #FF6961;
+    color: #B20301;
+    transition-duration: 50ms;
+}
+
+.error-div:hover {
+    background-color: #B20301;
+    color: #610200;
+}
