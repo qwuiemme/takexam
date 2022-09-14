@@ -12,6 +12,19 @@ h1, h2, h3, h4, h5, h6, p {
     padding-bottom: 15px;
 }
 
+.task-div {
+    width: 50%;
+    height: 100%;
+}
+
+.task-completed {
+    background-color: darkolivegreen;
+}
+
+.task-uncompleted {
+    background-color: orangered;
+}
+
 .form-padding {
     padding-bottom: 30px;
 }
