@@ -1,6 +1,7 @@
 package task
 
 import (
+	"fmt"
 	"log"
 	"strconv"
 	"time"
@@ -9,6 +10,8 @@ import (
 )
 
 const TimeFormat = "2006-01-02"
+
+var monthNames = [...]string{"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"}
 
 type Task struct {
 	BindedTo       string
@@ -21,6 +24,13 @@ type Task struct {
 type ReceivedTask struct {
 	Id int
 	Task
+}
+
+func (t *Task) GetDate() string {
+	year, month, day := t.CompleteBefore.Date()
+	monthName := monthNames[month-1]
+
+	return fmt.Sprintf("%s %s %s", strconv.Itoa(year), monthName, strconv.Itoa(day))
 }
 
 func (t *Task) InsertIntoDatabase() {
