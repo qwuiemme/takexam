@@ -10,7 +10,7 @@ import (
 )
 
 func Connect() *sql.DB {
-	db, err := sql.Open("mysql", properties.New().ConnString)
+	db, err := sql.Open("mysql", properties.ConnString)
 
 	if err != nil {
 		log.Fatal(err)

@@ -10,7 +10,7 @@ import (
 func main() {
 	srv := new(server.Server)
 
-	err := srv.Run(properties.New().RunAddr)
+	err := srv.Run(properties.RunAddr)
 
 	if err != nil {
 		log.Fatal(err)

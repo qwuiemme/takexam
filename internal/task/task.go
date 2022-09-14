@@ -50,12 +50,21 @@ func GetFromDatabase(login string) (tasks []ReceivedTask) {
 
 	for res.Next() {
 		var task ReceivedTask
+		var ctime string
 
-		err = res.Scan(&task.Id, &task.BindedTo, &task.IsCompleted, &task.CompleteBefore, &task.Name, &task.Description)
+		err = res.Scan(&task.Id, &task.BindedTo, &ctime, &task.IsCompleted, &task.Name, &task.Description)
 
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		t, err := time.Parse(TimeFormat, ctime)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		task.CompleteBefore = t
 
 		tasks = append(tasks, task)
 	}
